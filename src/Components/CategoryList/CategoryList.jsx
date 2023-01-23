@@ -16,6 +16,8 @@ const CategoryList = ({ ballot }) => {
   const [categoryList, setCategoryList] = useState({});
   const [isDisabled, setIsDisabled] = useState(false);
   const [modal, setModal] = useState(false);
+  const [rand, setRand] = useState({})
+  console.log(ballot)
 
   const handleSelect = (title, id) => {
     const newCategoryList = {
@@ -30,16 +32,58 @@ const CategoryList = ({ ballot }) => {
     
   };
 
+  const handleRandomSelect = () => {
+    const newList = {
+    }
+    // setCategoryList(newCategoryList);
+    // console.log(Object.keys(categoryList).length)
+    // const len = Object.keys(categoryList).length
+    // const ran = Math.random()
+    // console.log("ran: ",ran)
+    // const multiply = Math.floor(ran * len)
+    // console.log("multiply: ",multiply)
+    // // setRand(Math.floor(Math.random() * len))
+
+    // // const option = Object.keys(ballot).length
+    
+  
+    // console.log(option)
+    // setRand(Math.floor(Math.random() * option))
+  }
+
+  const randomSelect = () => {
+    const newList = {}
+    for (let item of ballot) {
+      // console.log(item)
+      const lent = item.items.length
+      const ran = Math.floor(Math.random() * lent)
+      // console.log(ran)
+      const randomlySelected = item.items[ran]
+      // console.log(randomlySelected)
+      console.log(typeof(randomlySelected.title))
+      newList[item.id] = randomlySelected.title
+    }
+    console.log("newlist: ",newList)
+    setCategoryList(newList)
+  }
+
+  
   const handleSubmit = () => {
     if (Object.keys(ballot).length) {
       setModal(true);
+      // console.log(categoryList)
     }
   };
 
   return (
     <>
       <div className="container">
-        <button className="random">Random Vote</button>
+        <button 
+          className="random"
+          onClick={() => randomSelect()}
+        >
+          Random Vote
+        </button>
         {ballot.map(({ id, title, items }) => {
           return (
             <div key={id} className="itemsContainer">
@@ -52,7 +96,7 @@ const CategoryList = ({ ballot }) => {
                           <div 
                             className={`card ${
                               categoryList[id] === title ? "selected_image" : "" 
-                          }`}>
+                            }`}>
                           <div className='card-image-content'>
                               <span className='card-overlay'>
                               </span>

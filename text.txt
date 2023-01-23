@@ -1,0 +1,5 @@
+How to delete from an array in react : https://stackoverflow.com/questions/36326612/how-to-delete-an-item-from-state-array
+
+How to delete a value from an array in react : https://codingbeautydev.com/blog/react-remove-item-from-state-array/
+
+Try this to select random values from an object: https://stackoverflow.com/questions/55592381/how-to-select-random-object-from-array-with-react-hooks
