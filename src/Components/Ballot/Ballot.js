@@ -10,7 +10,7 @@ const Ballot = () => {
     api.getBallotData()
       .then(data => {
         console.log(data);
-        setBallot(data.items)
+        setBallot(data?.items)
       })
       .catch(
         err => console.log(err)
