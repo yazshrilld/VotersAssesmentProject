@@ -28,6 +28,7 @@ const Ballot = () => {
   return (
     <>
       <CategoryList ballot={ballot} />
+      <div></div>
     </>
   )
 }
